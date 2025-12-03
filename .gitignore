@@ -48,3 +48,5 @@ nosetests.xml
 .pydevproject
 ezhil_tests/ezhil_builtins_june2013.txt
 Notes/Rosetta
+web/tamil
+web/ezhil
