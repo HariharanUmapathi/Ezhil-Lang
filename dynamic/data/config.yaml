@@ -14,3 +14,5 @@ pages:
     title : "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language) : உதாரணங்கள்"
   - name : download.html
     title : "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language) : தரவிறக்கங்கள் "
+  - name : ezhil_eval.html
+    title : "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language) : நிரல் மைதானம் "

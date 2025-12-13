@@ -68,12 +68,12 @@ def evaluate( request ):
 
             try:
                 os.unlink( tmpfile )
-            except Except as e:
+            except Exception as e:
                 pass
 
             try:
                 os.unlink( filename )
-            except Except as e:
+            except Exception as e:
                 pass
             
             #traceback.print_tb(sys.exc_info()[2])

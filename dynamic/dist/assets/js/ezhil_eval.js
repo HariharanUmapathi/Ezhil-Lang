@@ -87,7 +87,7 @@ require(["ace/ace"], function (ace) {
     }
 });
 
-function evaluateProg() {
+function evaluateProg_movedintohtml() {
     if (aceEditor == null) {
         alert("editor could not be loaded! cannot evaluate program");
         return null;
