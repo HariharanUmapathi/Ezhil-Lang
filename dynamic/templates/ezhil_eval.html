@@ -610,7 +610,7 @@ This HTML file is part of Ezhil - The Tamil Programming Language
         const noComments = code.replace(/#.*$/gm, "");
 
         // Match உள்ளீடு( or input(
-        const regex = /\b(உள்ளீடு|input)\s*\(/g;
+        const regex = /\b(உள்ளீடு|c)\s*\(/g;
 
         const matches = noComments.match(regex);
         return matches ? matches.length : 0;
@@ -620,7 +620,10 @@ This HTML file is part of Ezhil - The Tamil Programming Language
           alert("editor could not be loaded! cannot evaluate program");
           return null;
         } else {
-          console.log("Actual flow");
+          if (countEzhilInputs(aceEditor.getValue()) > 0 ){
+            alert("Programs with input is right now not supported we are working on it")
+            return false;
+          }
         }
         /* Save program as cookie */
         setEzhilCookie("program", aceEditor.getValue());

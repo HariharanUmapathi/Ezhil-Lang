@@ -55,102 +55,142 @@
 
   <body>
     <!--Navbar-->
-    <div class="navbar-wrapper">
-      <div class="container">
-        <div class="navbar navbar-default navbar-static-top">
-          <div class="navbar-header">
-            <a
-              class="navbar-toggle"
-              data-toggle="collapse"
-              data-target=".navbar-collapse"
-            >
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </a>
-            <a class="navbar-brand" href="#">எழில்: தமிழ் நிரலாக்க மொழி</a>
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
+    <div class="nav-container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#"> எழில்: தமிழ் நிரலாக்க மொழி </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#ezhilNavbar"
+            aria-controls="ezhilNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="ezhilNavbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- Dropdown: Learn about Ezhil -->
+              <li class="nav-item dropdown">
                 <a
+                  class="nav-link dropdown-toggle"
                   href="#"
-                  class="dropdown-toggle"
-                  data-toggle="dropdown"
-                  alt="Contact"
-                  >Learn about Ezhil<b class="caret"></b
-                ></a>
-                <ul class="dropdown-menu">
+                  id="learnDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Learn about Ezhil
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="learnDropdown">
                   <li>
-                    <a href="http://localhost:8080/dynamic/dist/grammar.html" title="Grammar"
-                      >மொழி இலக்கணம்</a
+                    <a
+                      class="dropdown-item"
+                      href="http://localhost:8080/dynamic/dist/grammar.html"
                     >
+                      மொழி இலக்கணம்
+                    </a>
                   </li>
                   <li>
-                    <a href="http://localhost:8080/dynamic/dist/example.html" title="Examples"
-                      >உதாரண நிரல்கள்</a
+                    <a
+                      class="dropdown-item"
+                      href="http://localhost:8080/dynamic/dist/example.html"
                     >
+                      உதாரண நிரல்கள்
+                    </a>
                   </li>
-                  <li class="divider"></li>
+                  <li><hr class="dropdown-divider" /></li>
                   <li>
-                    <a href="#publications" title="Publications"
-                      >research publications</a
-                    >
+                    <a class="dropdown-item" href="#publications">
+                      research publications
+                    </a>
                   </li>
                 </ul>
               </li>
-              <li>
-                <a href="http://localhost:8080/dynamic/dist/download.html" title="Download"
-                  >எழில் தரவிறக்கம்</a
-                >
+
+              <!-- Download -->
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/dynamic/dist/download.html">
+                  எழில் தரவிறக்கம்
+                </a>
               </li>
-              <li>
-                <a href="#register4book" title="Download eBook chapter"
-                  >எழில் eBook chapter தரவிறக்கம்</a
-                >
+
+              <!-- eBook -->
+              <li class="nav-item">
+                <a class="nav-link" href="#register4book">
+                  எழில் eBook chapter தரவிறக்கம்
+                </a>
               </li>
-              <li class="dropdown">
+
+              <!-- Dropdown: Contact -->
+              <li class="nav-item dropdown">
                 <a
+                  class="nav-link dropdown-toggle"
                   href="#"
-                  class="dropdown-toggle"
-                  data-toggle="dropdown"
-                  alt="Contact"
-                  >மேலும் தொடர்பு கொள்ள<b class="caret"></b
-                ></a>
-                <ul class="dropdown-menu">
+                  id="contactDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  மேலும் தொடர்பு கொள்ள
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactDropdown">
                   <li>
-                    <a href="#signup_for_mailinglist"
-                      >Signup for mailing list</a
-                    >
+                    <a class="dropdown-item" href="#signup_for_mailinglist">
+                      Signup for mailing list
+                    </a>
                   </li>
-                  <li><a href="#survey">Take Ezhil Survey</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#twitter">Twitter @ezhillang</a></li>
-                  <li><a href="#feedback">Contact us</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#survey">
+                      Take Ezhil Survey
+                    </a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#twitter">
+                      Twitter @ezhillang
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#feedback"> Contact us </a>
+                  </li>
                 </ul>
               </li>
             </ul>
           </div>
         </div>
-      </div>
-      <!-- /container -->
+      </nav>
+      <!-- /Navbar -->
     </div>
+
     <!--Navbar -->
 
     <!-- Carousel
 		 ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+
+    <div
+      id="myCarousel"
+      class="carousel slide"
+      data-bs-ride="carousel"
+      style="background-color: black; height: 300px"
+    >
       <div class="carousel-inner">
-        <div class="item active">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <span
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+          ></span>
+          <span data-bs-target="#myCarousel" data-bs-slide-to="1"></span>
+          <span data-bs-target="#myCarousel" data-bs-slide-to="2"></span>
+        </div>
+        <div class="carousel-item active">
           <div class="container">
             <img
-              class="img-circle"
+              class="rounded-circle"
               src="http://localhost:8080/dynamic/dist/assets/images/ezhil-logo.png"
             />
             <div class="carousel-caption">
@@ -168,10 +208,10 @@
             </div>
           </div>
         </div>
-        <div class="item">
+        <div class="carousel-item">
           <div class="container">
             <img
-              class="img-circle img-right"
+              class="rounded-circle img-right"
               src="http://localhost:8080/dynamic/dist/assets/images/EzhilRichTextEditor.png"
               width="350"
             />
@@ -188,10 +228,10 @@
             </div>
           </div>
         </div>
-        <div class="item">
+        <div class="carousel-item">
           <div class="container">
             <img
-              class="img-circle img-right"
+              class="rounded-circle img-right"
               src=""
               width="350"
               alt="no-image"
@@ -214,12 +254,22 @@
         </div>
       </div>
       <!-- Controls -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-      </a>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
     <!-- /.carousel -->
 
@@ -241,66 +291,28 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="col-md-4 text-center" id="learn-more">
+        <div
+          id="learn-more"
+          class="col-md-4 text-center"
+          style="min-height: 5rem"
+        >
           <img
-            class="img-circle"
+            class="rounded-circle"
             src="http://localhost:8080/dynamic/dist/assets/images/ezhil-logo.png"
+            width="140px"
           />
           <h2>Ezhil - Programming in Tamil</h2>
-          <div align="left">
-            <ul>
-              <li>
-                <b>எழில்</b> என்பது தமிழில் கணினி நிரல்களை எழுத உதவும் ஒரு
-                நிரலாக்க மொழி
-                <div style="font-size: 8pt; font-style: italic">
-                  Ezhil is a Tamil programming language
-                </div>
-              </li>
-              <br />
-              <li>
-                <strike>(English)</strike> ஆங்கிலம் அறியாதவர்கள் கணிப்பொறியை
-                இயக்க உதவும்
-                <div style="font-size: 8pt; font-style: italic">
-                  English language is not a pre-requisite
-                </div>
-              </li>
-              <br />
-              <li>
-                நிரலாக்கம் பற்றிக் கற்பதற்கு உதவும்
-                <div style="font-size: 8pt; font-style: italic">
-                  Beginners welcome
-                </div>
-              </li>
-              <br />
-              <li>
-                <b>எழில்</b> உங்களுக்கு முதன்முறையாக நிரல்கள் எழுத உதவும்
-                <div style="font-size: 8pt; font-style: italic">
-                  Write your first program in Ezhil
-                </div>
-              </li>
-              <br />
-              <li>
-                இது ஒரு திறமூல (Open Source) மென்பொருள். (Free) இலவசமாக
-                பயன்படுத்தலாம்
-              </li>
-              <li>
-                <span
-                  >Read Ezhil-Language
-                  <a href="http://ezhillang.wordpress.com">blog</a></span
-                >
-              </li>
-            </ul>
-          </div>
+          <div align="left"><br /><br /></div>
           <p>
-            <a class="btn btn-default" href="http://localhost:8080/dynamic/dist/download.html"
+            <a class="btn btn-primary" href="http://localhost:8080/dynamic/dist/download.html"
               >Download and try today!</a
             >
           </p>
         </div>
 
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center" style="min-height: 5rem">
           <img
-            class="img-circle"
+            class="rounded-circle"
             src="http://localhost:8080/dynamic/dist/assets/images/ezhil-logo-tamil-concept.png"
             width="140px"
           />
@@ -313,23 +325,78 @@
           <!-- <p><iframe width="420" height="315" src="http://www.youtube.com/embed/H8Lb5grUleU?rel=0" frameborder="0" allowfullscreen></iframe></p> -->
           <p>
             <a
-              class="btn btn-default"
+              class="btn btn-primary"
               href="http://www.youtube.com/embed/H8Lb5grUleU"
               >Watch Lessons on Video</a
             >
           </p>
         </div>
-        <div class="col-md-4 text-center">
-          <h2>உங்கள் வலை உலாவியில் ”எழில்” நிரல் எழுதிப் பழகுங்கள்!</h2>
+        <div class="col-md-4 text-center" style="min-height: 5rem">
           <img
+            class="rounded-circle"
             src="http://localhost:8080/dynamic/dist/assets/images/EzhilRichTextEditor.png"
-            width="300px"
+            width="140px"
           />
+          <h2>உங்கள் வலை உலாவியில் ”எழில்” நிரல் எழுதிப் பழகுங்கள்!</h2>
+          <br />
           <p>
-            <a class="btn btn-default" href="/koodam/play/eval/"
+            <a class="btn btn-primary" href="/koodam/play/eval/"
               >Try Ezhil now!</a
             >
           </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 d-flex">
+          <ul class="list-unstyled text-left flex-grow-1">
+            <li>
+              <b>எழில்</b> என்பது தமிழில் கணினி நிரல்களை எழுத உதவும் ஒரு
+              நிரலாக்க மொழி
+              <div style="font-style: italic">
+                Ezhil is a Tamil programming language
+              </div>
+            </li>
+            <br />
+            <li>
+              <strike>(English)</strike> ஆங்கிலம் அறியாதவர்கள் கணிப்பொறியை இயக்க
+              உதவும்
+              <div style="font-style: italic">
+                English language is not a pre-requisite
+              </div>
+            </li>
+            <br />
+          </ul>
+        </div>
+        <div class="col-lg-4 col-sm-12 d-flex">
+          <ul class="list-unstyled text-left flex-grow-1">
+            <li>
+              நிரலாக்கம் பற்றிக் கற்பதற்கு உதவும்
+              <div style="font-style: italic">Beginners welcome</div>
+            </li>
+            <br />
+            <li>
+              <b>எழில்</b> உங்களுக்கு முதன்முறையாக நிரல்கள் எழுத உதவும்
+              <div style="font-style: italic">
+                Write your first program in Ezhil
+              </div>
+            </li>
+            <br />
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 d-flex">
+          <ul class="list-unstyled text-left flex-grow-1">
+            <li>
+              இது ஒரு திறமூல (Open Source) மென்பொருள். (Free) இலவசமாக
+              பயன்படுத்தலாம்
+            </li>
+            <br />
+            <li>
+              <span
+                >Read Ezhil-Language
+                <a href="http://ezhillang.wordpress.com">blog</a></span
+              >
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -351,7 +418,7 @@
         </p>
         <p>
           <a
-            class="btn btn-default"
+            class="btn btn-primary"
             href="https://en.wikipedia.org/wiki/Ezhil_%28programming_language%29"
             >Browse our Wikipedia entry</a
           >
@@ -362,7 +429,7 @@
       <!-- LEARN EZHIL -->
       <div class="featurette">
         <img
-          class="featurette-image img-circle pull-left"
+          class="featurette-image rounded-circle pull-left"
           src="http://localhost:8080/dynamic/dist/assets/images/EzhilRichTextEditor.png"
         />
         <h2 class="featurette-heading">
@@ -374,7 +441,7 @@
           web-based learning.
         </p>
         <p>
-          <a class="btn btn-default" href="/koodam/play/eval/"
+          <a class="btn btn-primary" href="/koodam/play/eval/"
             >Try Ezhil today!</a
           >
         </p>
@@ -396,10 +463,10 @@
           you to learn or teach basic computer science through Ezhil at the
           8-12th grade level.
         </p>
-        <!-- <p><a class="btn btn-default" href="/book/register/">Register and Download free book</a></p> -->
+        <!-- <p><a class="btn btn-primary" href="/book/register/">Register and Download free book</a></p> -->
         <p>
           <a
-            class="btn btn-default"
+            class="btn btn-primary"
             href="http://localhost:8080/dynamic/dist/downloads/Book-TOC+Ch1.pdf"
             >Download Ezhil eBook "Write Code in Tamil!"</a
           >
@@ -410,7 +477,7 @@
       <!-- RESEARCH PAPERS - 2009 -2014 -->
       <div class="featurette">
         <img
-          class="featurette-image img-circle pull-left"
+          class="featurette-image rounded-circle pull-left"
           src="http://localhost:8080/dynamic/dist/assets/images/120px-Hubble_01.jpg"
           alt="Hubble Space telescope"
           width="350px"
@@ -429,7 +496,7 @@
             <ol>
               <li>
                 <a
-                  class="btn btn-default"
+                  class=""
                   href="/Ezhil-Publications/2009/ezhil-2009-ArXiV-0907.4960.pdf"
                   >'Ezhil: A Tamil programming language' , M. Annamalai,</a
                 >
@@ -443,7 +510,7 @@
             <ol>
               <li>
                 <a
-                  class="btn btn-default"
+                  class=""
                   href="/Ezhil-Publications/2013/ezhil-INFITT2013-ArXiV-1308.1733v1.pdf"
                   >'Invitation to Ezhil: A Tamil Programming Language for Early
                   Computer-Science Education', M. Annamalai, INFITT-2013</a
@@ -457,7 +524,7 @@
             <ol>
               <li>
                 <a
-                  class="btn btn-default"
+                  class=""
                   href="/Ezhil-Publications/2014/Learning-Ezhil-Language-Via-Web_v4_081014.pdf"
                   >'Learning Ezhil Language via Web', M. Annamalai,
                   INFITT-2014</a
@@ -465,7 +532,7 @@
               </li>
               <li>
                 <a
-                  class="btn btn-default"
+                  class=""
                   href="/Ezhil-Publications/2014/Write-Code-in-Tamil_v2_081014.pdf"
                   >'Write code in Tamil', (Tamil article), M. Annamalai, 2014</a
                 >
@@ -480,17 +547,17 @@
       <!-- contributors -->
       <div class="featurette">
         <img
-          class="featurette-image img-circle pull-right"
+          class="featurette-image rounded-circle pull-right"
           src="http://localhost:8080/dynamic/dist/assets/images/220px-Marina_Beach.jpg"
           alt="Marina beach"
-          width="350px"
+          width="220px"
         />
         <h2 class="featurette-heading" id="contributors">
           Contributors<span class="text-muted"> and volunteers</span>
         </h2>
         <p class="lead">
           <a
-            class="btn-default"
+            class="btn-primary"
             href="//github.com/arcturusannamalai/Ezhil-Lang/blob/master/CREDITS"
             >Click here</a
           >
@@ -502,7 +569,7 @@
 
       <div class="featurette">
         <img
-          class="featurette-image img-circle pull-left"
+          class="featurette-image rounded-circle pull-left"
           src="http://localhost:8080/dynamic/dist/assets/images/wordpress-logo-stacked-bg.png"
           alt="Wordpress blog"
           width="350px"
@@ -511,13 +578,13 @@
         <p class="lead">
           We share with you the development/website updates, tips &amp; tricks
           on our blog. Ezhil blog is hosted at the site,
-          <a href="//ezhillang.wordpress.com" class="btn btn-default"
+          <a href="//ezhillang.wordpress.com" class="btn btn-primary"
             >ezhillang.wordpress.com</a
           >. We discuss tips and tricks, tutorials, and other useful information
           while using Ezhil language environment, or similar Tamil computing
           issues. This article discusses
           <a
-            class="btn btn-default"
+            class="btn btn-primary"
             href="//ezhillang.wordpress.com/2013/09/18/tutorial01/"
             >வாங்க, நிரல் எழுதுவோம்! (an invitation to write Programs)</a
           >
@@ -532,7 +599,7 @@
 
       <hr class="featurette-divider" />
       <div class="featurette" id="MEDIACOVERAGE">
-        <!-- <img class="featurette-image img-circle pull-left" src="/web/images/wordpress-logo-stacked-bg.png" alt="Wordpress blog" width="350px"/> -->
+        <!-- <img class="featurette-image rounded-circle pull-left" src="/web/images/wordpress-logo-stacked-bg.png" alt="Wordpress blog" width="350px"/> -->
         <h2 class="featurette-heading" id="blog">
           எழில் பற்றி ஊடக செய்திகள், நேர்கானல் (Ezhil Media Coverage,
           Interviews)
@@ -543,7 +610,7 @@
             <li>
               The Hindu Newspaper, Dec 22nd, 2014:
               <a
-                class="btn btn-default"
+                class=""
                 href="http://www.thehindu.com/features/education/school/making-computing-in-tamil-easy/article6713408.ece"
                 >"Bridging the digital divide"</a
               >
@@ -555,7 +622,7 @@
             <li>
               SBS Australian Radio (Tamil), Feb 22nd, 2015:
               <a
-                class="btn btn-default"
+                class=""
                 href="http://www.sbs.com.au/yourlanguage/tamil/ta/content/sanch_s123?language=ta"
                 >"கணினி நிரல்களைத் தமிழிலேயே குறியீடு செய்ய, எழில்"</a
               >
@@ -722,7 +789,7 @@
                 <div>
                   Fork us on
                   <a
-                    class="btn btn-default"
+                    class="btn btn-primary"
                     href="https://github.com/arcturusannamalai/Ezhil-Lang"
                     >Git Hub</a
                   >
@@ -879,9 +946,10 @@
 
     <!-- script references -->
     <script src="http://localhost:8080/dynamic/dist/assets/js/jquery.min.js"></script>
+    <script src="http://localhost:8080/dynamic/dist/assets/js/popper.min.js"></script>
     <script src="http://localhost:8080/dynamic/dist/assets/js/bootstrap.min.js"></script>
     <script src="http://localhost:8080/dynamic/dist/assets/js/jquery-ui.min.js"></script>
-	<!-- scripts references -->
+    <!-- scripts references -->
   </body>
 </html>
 <!-- (C) 2007 - 2025 முத்தையா அண்ணாமலை -->
