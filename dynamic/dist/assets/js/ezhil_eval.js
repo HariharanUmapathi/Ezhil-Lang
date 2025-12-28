@@ -37,11 +37,6 @@ function getEzhilCookie(name) {
     return value;
 }
 
-function setEzhilCookie(name, program) {
-    var expiry_date = new Date();
-    expiry_date.setDate(expiry_date.getDate() + 7); /* 7-day expiry */
-    document.cookie = name + "=" + escape(program) + "; expires=" + expiry_date.toUTCString();
-}
 
 function checkEzhilCookie() {
     var program = getEzhilCookie("program");
@@ -58,20 +53,13 @@ function checkEzhilCookie() {
     }
 }
 ////cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js
-require.config({
+/* require.config({
     baseUrl: "//cdnjs.cloudflare.com/",
     paths: {
         ace: "ajax/libs/ace/1.2.3",
 
     }
-});
-
-require.config({
-    paths: {
-        "$": "jquery.min."
-    }
-})
-
+}); */
 
 //evaluate on-load - check cookie and populate the editor field if we were here before.
 require(["ace/ace"], function (ace) {
