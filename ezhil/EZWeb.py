@@ -22,6 +22,11 @@ import io
 import subprocess
 import os
 
+PYTHON3 = os.environ.get("PYTHON3")
+
+if not PYTHON3:
+    raise RuntimeError("PYTHON3 environment variable not set")
+
 cgitb.enable()
 
 DEBUG = False
@@ -59,8 +64,6 @@ class BaseEzhilWeb(CGIHTTPRequestHandler):
         
 
     def do_ezhil_execute(self, program):
-        print(program)
-        PYTHON3 = "/home/hariharan/virtual-envs/ezhil-venv/bin/python3"
         failed=True
         try:
             result = subprocess.run(
@@ -85,7 +88,6 @@ class BaseEzhilWeb(CGIHTTPRequestHandler):
             op = "<H2> Your program has some errors! </H2><HR/><BR/>"
         else:
             op = "<H2> Your program executed correctly! </H2><HR/><BR/>"
-        print(stdout)
         op += "<pre>{}</pre>".format(stdout or stderr)
 
         real_op = f"""
@@ -104,7 +106,7 @@ class EzhilWeb(ThreadingMixIn, BaseEzhilWeb):
     pass
 
 
-HOST_NAME = "localhost"
+HOST_NAME = "0.0.0.0"
 PORT_NUMBER = 8080
 
 if __name__ == "__main__":
