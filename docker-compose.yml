@@ -1,0 +1,9 @@
+version: '3.0'
+services:
+  web:
+    image : ezhil-site
+    ports:
+      - '8080:8080' 
+    volumes: 
+      - ./dynamic/dist:/web
+      - ./ezhil:/web/ezhil

@@ -178,3 +178,52 @@ Development notes
 -----------------
 
 Ezhil project is hosted on Thamizaa project, as well on Ezhil Language Foundation github pages.
+
+Docker image building notes
+---------------------
+
+```bash
+# from project root run the following to generate docker image
+docker build -t ezhil-site .
+```
+
+Run using Docker run
+--------------------
+
+```bash 
+# To run the server using docker run 
+docker run \
+--name ezhil-container \
+-p 8080:8080 \
+-v $(pwd)/dynamic/dist:/web \
+-v $(pwd)/ezhil:/web/ezhil  \
+ezhil-site
+```
+
+Run using Docker Compose
+--------------
+
+```bash
+# using docker compose use the following from the project root
+docker-compose up -d 
+```
+
+Apache Virtual host configuration
+---------------------------------
+
+```apache
+# apache virtual host configuration
+# change according to you setup 
+<VirtualHost *:80>
+    ServerName ezhil.kaniyam.ca.local
+
+    ProxyPreserveHost On
+
+    ProxyPass / http://127.0.0.1:8080/
+    ProxyPassReverse / http://127.0.0.1:8080/
+
+    ErrorLog ${APACHE_LOG_DIR}/ezhil.kaniyam.error.log
+    CustomLog ${APACHE_LOG_DIR}/ezhil.kaniyam.access.log combined
+</VirtualHost>
+
+```

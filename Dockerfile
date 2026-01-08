@@ -7,9 +7,9 @@ COPY site-requirements.txt .
 # Installing latest image
 RUN pip install -r site-requirements.txt
 # Ezhil Source setup in docker 
-COPY ./ezhil ./ezhil
+# COPY ./ezhil ./ezhil
 # uploading static site contents 
-COPY ./dynamic/dist ./
+# COPY ./dynamic/dist ./
 # following python path is used to run python script from subprocess context TODO: 
 ENV PYTHON3 /usr/local/bin/python3
 # for readablity 
