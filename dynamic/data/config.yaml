@@ -1,0 +1,18 @@
+site:
+  title:
+  description:
+  author : முத்தையா அண்ணாமலை
+  base_url: http://localhost:8080/dynamic/dist
+  copyright: (C) 2007 - 2025 முத்தையா அண்ணாமலை
+  copyright_en: (C) 2007 - 2025  Muthiah Annamalai
+pages:
+  - name: index.html
+    title: "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language)"
+  - name: grammar.html
+    title: "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language)   : மொழி இலக்கணம்"
+  - name : example.html 
+    title : "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language) : உதாரணங்கள்"
+  - name : download.html
+    title : "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language) : தரவிறக்கங்கள் "
+  - name : ezhil_eval.html
+    title : "எழில்: தமிழ் நிரலாக்க மொழி (Ezhil: The Tamil Programming Language) : நிரல் மைதானம் "

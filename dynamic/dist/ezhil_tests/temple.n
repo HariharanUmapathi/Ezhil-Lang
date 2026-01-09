@@ -1,0 +1,5 @@
+# (C) முத்தையா அண்ணாமலை 2013
+# இது ஒரு எழில் தமிழ் நிரலாக்க மொழி உதாரணம்
+
+#test the failure 'identifier' not found
+print "ஆலயம்"

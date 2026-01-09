@@ -9,135 +9,96 @@
 ## Ref: http://wiki.python.org/moin/BaseHttpServer
 
 import time
-from .ezhil import EzhilFileExecuter, EzhilInterpExecuter
-import http.server, tempfile, threading
-from http.server import SimpleHTTPRequestHandler
+# Web Serving Essentials for CGI and normal http webserver 
+import http
+from http.server import SimpleHTTPRequestHandler,CGIHTTPRequestHandler,HTTPServer
 from socketserver import ThreadingMixIn
-from http.server import CGIHTTPRequestHandler
-from os import unlink
-import cgi, cgitb, codecs
-import sys, traceback
+import cgi, cgitb
+
+from .ezhil import EzhilFileExecuter
+# for handling buffer like handling
+from contextlib import redirect_stdout
+import io
+import subprocess
+import os
+
+PYTHON3 = os.environ.get("PYTHON3")
+
+if not PYTHON3:
+    raise RuntimeError("PYTHON3 environment variable not set")
 
 cgitb.enable()
 
 DEBUG = False
 
 
-class BaseEzhilWeb(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        print(str(self.headers), "in thread =", threading.currentThread().getName())
-        # delegate to parent
+class BaseEzhilWeb(CGIHTTPRequestHandler):
+    def do_GET(self): 
         SimpleHTTPRequestHandler.do_GET(self)
         return
 
     def do_POST(self):
-        query_string = self.rfile.read(int(self.headers['Content-Length']))
-        print(query_string)
-        POSTvars = cgi.parse_qs(query_string)
-        print(str(POSTvars))
-
+        POSTvars = cgi.FieldStorage(
+                    fp=self.rfile,
+                    headers=self.headers,
+                    environ={'REQUEST_METHOD': 'POST'}
+        )
         if 'prog' in POSTvars:
-            program = "\n".join(POSTvars['prog'])
-            program = codecs.decode(program, 'utf-8')
+            program = "".join(POSTvars['prog'].value)
         elif 'eval' in POSTvars:
             program = 'printf("Welcome to Ezhil! You can type a program and execute it online!")'
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/html")
             self.end_headers()
-            self.wfile.write("<h1>HTTP 404 : Error occured</h1>")
-            self.wfile.write(str(POSTvars))
+            self.wfile.write(b"<h1>HTTP 404 : Error occured</h1>")
+            self.wfile.write(str(POSTvars).encode('utf-8'))
             return
 
         self.send_response(200)
         self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
         self.do_ezhil_execute(program)
-
         return
 
+        
+
     def do_ezhil_execute(self, program):
-        # write the input program into a temporary file and execute the Ezhil Interpreter
-
-        program_fmt = """<TABLE>
-        <TR><TD>
-        <TABLE>
-        <TR>
-        <TD><font color=\"blue\"><OL>"""
-
-        print("Source program")
-        print(program)
-        print("*" * 60)
-
-        program_fmt += "\n".join(
-            ["<li>%s</li>" % (prog_line) for line_no, prog_line in enumerate(program.split('\n'))])
-        program_fmt += """</OL></font></TD></TR>\n</TABLE></TD><TD>"""
-
-        # run the interpreter in a sandbox and capture the output hopefully
+        failed=True
         try:
-            failed = True  # default failed mode
-            obj = EzhilFileExecuter(file_input=[program], redirectop=True, TIMEOUT=60 * 2)  # 2 minutes
+            result = subprocess.run(
+                [PYTHON3,"-m","ezhil.ezhil_runner"],
+            input=program,
+            text=True,
+            capture_output=True,
+            timeout=10  # HARD TIMEOUT
+            )
 
-            # actually run the process
-            obj.run()
+            stdout = result.stdout
+            stderr = result.stderr
 
-            # get executed output in 'progout' and name of the two tmp files to cleanup
-            [tmpfile, filename, progout] = obj.get_output()
+            failed = result.returncode != 0
 
-            for f in [tmpfile, filename]:
-                try:
-                    os.unlink(f)
-                except Exception as e:
-                    pass
-
-            if obj.exitcode != 0:  # and EzhilWeb.error_qualifiers(progout)
-                failed = True
-            else:
-                failed = False
-
-            # output from ezhil interpreter is in form of UTF-8 strings, we extract
-            # it from ASCII format I/O since we are in CGI mode.
-            progout = progout.decode('utf-8')
-            if DEBUG:
-                print("output = ")
-                print(progout)
-
-            # SUCCESS_STRING = "<H2> Your program executed correctly! Congratulations. </H2>"
-            FAILED_STRING = "Traceback (most recent call last)"
-            if obj.exitcode != 0 and progout.find(FAILED_STRING) > -1:
-                print("Exitcode => ", obj.exitcode)
-                op = "%s <B>FAILED Execution, with parsing or evaluation error</B> for program with <font color=\"red\">error <pre>%s</pre> </font></TD></TR></TABLE>" % (
-                program_fmt, progout)
-            else:
-                failed = False
-                obj.exitcode = 0
-                op = "%s <B>Succeeded Execution</B> for program with output, <BR/> <font color=\"green\"><pre>%s</pre></font></TD></TR></TABLE>" % (
-                program_fmt, progout)
-        except Exception as e:
-            print("FAILED EXECUTION", str(e))
-            traceback.print_tb(sys.exc_info()[2])
+        except subprocess.TimeoutExpired as e:
+            stdout = e.stdout or ""
+            stderr = "Execution timed out after 10 seconds"
             failed = True
-            op = "%s <B>FAILED Execution</B> for program with <font color=\"red\">error <pre>%s</pre> </font></TD></TR></TABLE>" % (
-            program_fmt, str(e))
-        else:
-            print("Output file")
-            obj.get_output()
 
-        prev_page = """<script>
-    document.write("Navigate back to your source program : <a href='#' onClick='history.back();return false;'>Go Back</a>");
-</script><HR/>"""
-        # op = ""
         if failed:
-            op = "<H2> Your program has some errors! Try correcting it and re-evaluate the code</H2><HR/><BR/>" + op
+            op = "<H2> Your program has some errors! </H2><HR/><BR/>"
         else:
-            op = "<H2> Your program executed correctly! Congratulations. </H2><HR/><BR/>" + op
-        op = prev_page + op
-        real_op = "<html> <head> <title>Ezhil interpreter</title> </head><body> %s </body></html>\n" % op
+            op = "<H2> Your program executed correctly! </H2><HR/><BR/>"
+        op += "<pre>{}</pre>".format(stdout or stderr)
 
-        # CGI pipe only allows ASCII style strings
-        self.wfile.write(real_op.encode('utf-8'))
+        real_op = f"""
+        <html>
+        <head><title>Ezhil interpreter</title></head>
+        <body>{op}</body>
+        </html>
+        """
 
-        return op
+        self.wfile.write(real_op.encode("utf-8"))
+
 
 
 class EzhilWeb(ThreadingMixIn, BaseEzhilWeb):
@@ -145,7 +106,7 @@ class EzhilWeb(ThreadingMixIn, BaseEzhilWeb):
     pass
 
 
-HOST_NAME = "localhost"
+HOST_NAME = "0.0.0.0"
 PORT_NUMBER = 8080
 
 if __name__ == "__main__":
