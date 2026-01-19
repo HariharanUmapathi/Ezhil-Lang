@@ -3,4 +3,4 @@
 3. /Ezhil-Lang/blob/master/ezhil/scanner.py
 4. /Ezhil-Lang/blob/master/ezhil/runtime.py
 
-https://github.com/arcturusannamalai/Ezhil-Lang/issues/56
+https://github.com/Ezhil-Language-Foundation/Ezhil-Lang/issues/56

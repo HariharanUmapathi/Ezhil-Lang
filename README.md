@@ -227,3 +227,25 @@ Apache Virtual host configuration
 </VirtualHost>
 
 ```
+
+Adding as a systemd Service
+----------------------------
+```bash 
+# Install docker as a service first 
+sudo systemctl enable docker 
+sudo systemctl start docker 
+# Update working directory with actual working directory for triggering service check for permission issues
+sed -i "s|^WorkingDirectory=.*|WorkingDirectory=$(pwd)|" "ezhil-site.service"
+# Copy ezhil-site.service file to install systemd service
+sudo cp ./ezhil-site.service /etc/systemd/system/ezhil-site.service
+# After copying the service file update daemon 
+sudo systemctl daemon-reload
+# Enable and start service 
+sudo systemctl enable ezhil-site.service
+sudo systemctl start ezhil-site.service
+# Enable systemctl status 
+sudo systemctl status ezhil-site.service
+# Running good then all is fine 
+# Otherwise 
+jounalctl -xe
+```
