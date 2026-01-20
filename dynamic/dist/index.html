@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <!-- AUTHOR: (C) 2007 - 2025 முத்தையா அண்ணாமலை Modified 12/07/14 -->
 
@@ -139,17 +139,6 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="contactDropdown">
                   <li>
-                    <a class="dropdown-item" href="#signup_for_mailinglist">
-                      Signup for mailing list
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#survey">
-                      Take Ezhil Survey
-                    </a>
-                  </li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
                     <a class="dropdown-item" href="#twitter">
                       Twitter @ezhillang
                     </a>
@@ -232,8 +221,8 @@
         <div class="carousel-item">
           <div class="container">
             <img
-              class="rounded-circle img-right"
-              src=""
+              class="img-right"
+              src="http://ezhil.kaniyam.ca.local/assets/images/ezhil-logo-tamil-concept.png"
               width="350"
               alt="no-image"
             />
@@ -285,7 +274,7 @@
         </p>
         <p class="lead">
           நிரலாக்க மொழி பற்றி மேலும் அறிய இந்த வலைவாசல் (Learn about the
-          EzhilLanguage) http://ezhillang.org எழில் கணினி நிரல் மொழி
+          EzhilLanguage) https://ezhil.kaniyam.ca/ எழில் கணினி நிரல் மொழி
           வரவேற்கிறது.
         </p>
       </div>
@@ -427,11 +416,14 @@
       <hr class="featurette-divider" />
       <!-- LEARN EZHIL -->
       <div class="featurette">
-        <img
+        <div class="row">
+          <div class="col-4">
+            <img
           class="featurette-image rounded-circle pull-left"
-          src="http://ezhil.kaniyam.ca.local/assets/images/EzhilRichTextEditor.png"
+          src="http://ezhil.kaniyam.ca.local/assets/images/EzhilRichTextEditor.png" style="width:200px;height:200px;margin-top:0px;border-radius:1rem !important;"
         />
-        <h2 class="featurette-heading">
+          </div>
+          <div class="col-8"><h2 class="featurette-heading">
           Learn Ezhil online!
           <span class="text-muted">It's pretty awesome</span>
         </h2>
@@ -441,36 +433,40 @@
         </p>
         <p>
           <a class="btn btn-primary" href="ezhil_eval.html">Try Ezhil today!</a>
-        </p>
+        </p></div>
+        </div>
+        
+        
       </div>
       <hr class="featurette-divider" />
 
       <!-- REGISTER FOR THE BOOK -->
       <div class="featurette">
-        <img
-          class="featurette-image pull-right"
-          src="http://ezhil.kaniyam.ca.local/assets/images/book-cover.png"
-        />
-        <h2 class="featurette-heading">
-          Download the Ezhil book,
-          <span class="text-muted"> free with registration!</span>
-        </h2>
-        <p class="lead" id="download-ebook">
-          Learn Ezhil Language using this book. The book is in Tamil, and allows
-          you to learn or teach basic computer science through Ezhil at the
-          8-12th grade level.
-        </p>
-        <!-- <p><a class="btn btn-primary" href="/book/register/">Register and Download free book</a></p> -->
-        <p>
+        <div class="row">
+          <div class="col-sm-12 col-6">
+            <img class="featurette-image pull-right" src="http://ezhil.kaniyam.ca.local/assets/images/book-cover.png" />
+          </div>
+          <div class="col-6">
+              <h2 class="featurette-heading"> Download the Ezhil book, <span class="text-muted"> free with registration!</span> </h2>
+              <p class="lead" id="download-ebook">
+                Learn Ezhil Language using this book. The book is in Tamil, and allows
+                you to learn or teach basic computer science through Ezhil at the
+                8-12th grade level.
+              </p>
+          <p>
           <a
             class="btn btn-primary"
             href="http://ezhil.kaniyam.ca.local/downloads/Book-Write-Code-In-Tamil-2015.pdf"
             >Download Ezhil eBook "Write Code in Tamil!"</a
           >
         </p>
+          </div>
+        </div>
+
+        
+        
       </div>
       <hr class="featurette-divider" />
-
       <!-- RESEARCH PAPERS - 2009 -2014 -->
       <div class="featurette">
         <img
@@ -628,115 +624,6 @@
         </div>
       </div>
       <hr class="featurette-divider" />
-
-      <div class="featurette" id="signup_for_mailinglist">
-        <h2 class="featurette-heading">
-          Stay connected -
-          <span class="text-muted"> get latest Ezhil news</span>
-        </h2>
-        <!-- Begin MailChimp Signup Form -->
-        <link
-          href="//cdn-images.mailchimp.com/embedcode/classic-081711.css"
-          rel="stylesheet"
-          type="text/css"
-        />
-        <style type="text/css">
-          #mc_embed_signup {
-            background: #fff;
-            clear: left;
-            font:
-              14px Helvetica,
-              Arial,
-              sans-serif;
-          }
-
-          /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-		  We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-        </style>
-        <div id="mc_embed_signup" align="center">
-          <form
-            action="//ezhillang.us7.list-manage.com/subscribe/post?u=fc173f534915e1befc940a0c0&amp;id=04700cd471"
-            method="post"
-            id="mc-embedded-subscribe-form"
-            name="mc-embedded-subscribe-form"
-            class="validate"
-            target="_blank"
-            novalidate
-          >
-            <div id="mc_embed_signup_scroll">
-              <h2>Subscribe to our mailing list</h2>
-              <div class="indicates-required">
-                <span class="asterisk">*</span> indicates required
-              </div>
-              <div class="mc-field-group">
-                <label for="mce-EMAIL"
-                  >Email Address <span class="asterisk">*</span>
-                </label>
-                <input
-                  type="email"
-                  value=""
-                  name="EMAIL"
-                  class="required email"
-                  id="mce-EMAIL"
-                />
-              </div>
-              <div class="mc-field-group">
-                <label for="mce-FNAME">First Name </label>
-                <input
-                  type="text"
-                  value=""
-                  name="FNAME"
-                  class=""
-                  id="mce-FNAME"
-                />
-              </div>
-              <div class="mc-field-group">
-                <label for="mce-LNAME">Last Name </label>
-                <input
-                  type="text"
-                  value=""
-                  name="LNAME"
-                  class=""
-                  id="mce-LNAME"
-                />
-              </div>
-              <div id="mce-responses" class="clear">
-                <div
-                  class="response"
-                  id="mce-error-response"
-                  style="display: none"
-                ></div>
-                <div
-                  class="response"
-                  id="mce-success-response"
-                  style="display: none"
-                ></div>
-              </div>
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px">
-                <input
-                  type="text"
-                  name="b_fc173f534915e1befc940a0c0_04700cd471"
-                  tabindex="-1"
-                  value=""
-                />
-              </div>
-              <div class="clear">
-                <input
-                  type="submit"
-                  value="Subscribe"
-                  name="subscribe"
-                  id="mc-embedded-subscribe"
-                  class="button"
-                />
-              </div>
-            </div>
-          </form>
-        </div>
-        <!--End mc_embed_signup-->
-      </div>
-
-      <hr class="featurette-divider" />
       <div class="featurette" id="twitter">
         <h2 class="featurette-heading">
           Ezhil on Twitter, <span class="text-muted"> and on social media</span>
@@ -803,7 +690,7 @@
       <hr class="featurette-divider" />
 
       <!-- Survey featurette -->
-      <div class="featurette" id="survey" style="display: none">
+      <div class="featurette" id="survey" style="display:none">
         <h2 class="featurette-heading">
           Take the survey - <span class="text-muted"> make Ezhil better</span>
         </h2>
@@ -894,7 +781,7 @@
         <hr class="featurette-divider" />
       </div>
       <div class="featurette">
-        <h2></h2>
+        <h2>Tamil Linux Community</h2>
         <a
           href="https://forums.tamillinuxcommunity.org/new-topic?category=வினா&tags=community-projects,ezhil"
         >

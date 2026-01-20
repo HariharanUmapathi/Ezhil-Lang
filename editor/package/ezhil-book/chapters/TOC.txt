@@ -1,11 +1,11 @@
 Reference: "Ezhil : A Tamil Programming Language" http://arxiv.org/abs/0907.4960 
 PDF ref: http://arxiv.org/pdf/0907.4960v1
 
-Github : Source code : https://github.com/arcturusannamalai/Ezhil-Lang
-Download code: https://github.com/arcturusannamalai/Ezhil-Lang/archive/master.zip
+Github : Source code : https://github.com/Ezhil-Language-Foundation/Ezhil-Lang
+Download code: https://github.com/Ezhil-Language-Foundation/Ezhil-Lang/archive/master.zip
 Follow us on Twitter: @ezhillang
 
-Language Keywords, Statements : http://ezhillang.org/grammar.html
+Language Keywords, Statements : https://ezhil.kaniyam.ca/grammar.html
 
 Ezhil - TOC
 1. Introduction to programming language;
