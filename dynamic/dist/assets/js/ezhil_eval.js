@@ -1,15 +1,22 @@
 /* (C) 2013 Muthiah Annamalai */
-var aceEditor = null;
-
 function appendText(text_elements) {
-    require(["ace/ace"], function (ace) {
-        var editor = ace.edit("editor");
-        if (editor) {
-            editor.insert(text_elements); //insert at cursor
+    if (aceEditor != null) {
+        require(["ace/ace"], function (ace) {
+            var editor = ace.edit("editor");
+            if (editor) {
+                editor.insert(text_elements); //insert at cursor
+            } else {
+                $("#editor").html(text_elements);
+            }
+        })
+    } else {
+        if (aceEditor) {
+            aceEditor.insert(text_elements); //insert at cursor
         } else {
             $("#editor").html(text_elements);
         }
-    })
+    }
+
 }
 
 function getEzhilCookie(name) {
@@ -52,28 +59,27 @@ function checkEzhilCookie() {
         /**  alert("Cookie not found, or no cookie set yet!"); */
     }
 }
-////cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js
-/* require.config({
-    baseUrl: "//cdnjs.cloudflare.com/",
-    paths: {
-        ace: "ajax/libs/ace/1.2.3",
-
-    }
-}); */
 
 //evaluate on-load - check cookie and populate the editor field if we were here before.
-require(["ace/ace"], function (ace) {
-    var editor = ace.edit("editor");
-    if (editor) {
-        aceEditor = editor;
-        //editor.setTheme("ace/theme/default");
-        //editor.getSession().setMode("ace/mode/ezhil");
-        editor.setValue($("#default_program").html());
-        checkEzhilCookie();
+
+/* require(["ace/ace"], function (ace) {
+    if (aceEditor == null) {
+        var editor = ace.edit("editor");
+        if (editor) {
+            aceEditor = editor;
+            //editor.setTheme("ace/theme/default");
+            //editor.getSession().setMode("ace/mode/ezhil");
+            editor.setValue($("#default_program").html());
+            checkEzhilCookie();
+        } else {
+            $("#editor").html($("#default_program").html())
+        }
     } else {
-        $("#editor").html($("#default_program").html())
+        aceEditor.setValue($("#default_program").html())
+        checkEzhilCookie();
     }
-});
+
+}); */
 
 function evaluateProg_movedintohtml() {
     if (aceEditor == null) {
