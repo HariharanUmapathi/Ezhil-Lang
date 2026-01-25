@@ -1,5 +1,5 @@
 # (C) 2013 ராமநாதன்
-# 08/25/13 - via - http://ezhillang.org/
+# 08/25/13 - via - https://ezhil.kaniyam.ca/
 பதிப்பி "பிபநாசி எண்கள்"
 
   அ = 0

@@ -1,7 +1,7 @@
 # (C) 2013, Ezhil Language Project
 # இது ஒரு எழில் தமிழ் நிரலாக்க மொழி உதாரணம்
 
-# Built and tested on http://ezhillang.org
+# Built and tested on https://ezhil.kaniyam.ca/
 # Ref: http://en.wikipedia.org/wiki/Narcissistic_number
 
 நிரல்பாகம் அர்ம்ஸ்ரோங் (எண்)

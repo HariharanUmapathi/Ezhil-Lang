@@ -20,15 +20,16 @@
 
 # based on the configuration mentioned pages only considered for genration
 ```
-## Builder 
+
+## Builder
 
 ```bash 
 python3 build.py # to build dist pages 
 ```
 
-## pip dependencies 
+## pip dependencies
 
 ```bash
-Jinja
-yaml 
+Jinja2
+pyyaml 
 ```

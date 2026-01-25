@@ -1,6 +1,6 @@
 Koodam : School for learning Ezhil online
 =========================================
-* Koodam is a single-page web app to learn Ezhil online, via local deployment or through http://ezhillang.org
+* Koodam is a single-page web app to learn Ezhil online, via local deployment or through https://ezhil.kaniyam.ca/
 
 Feature list
 ============

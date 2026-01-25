@@ -2,7 +2,7 @@ site:
   title:
   description:
   author : முத்தையா அண்ணாமலை
-  base_url: http://localhost:8080/dynamic/dist
+  base_url: http://ezhil.kaniyam.ca.local
   copyright: (C) 2007 - 2025 முத்தையா அண்ணாமலை
   copyright_en: (C) 2007 - 2025  Muthiah Annamalai
 pages:

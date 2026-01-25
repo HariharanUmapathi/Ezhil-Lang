@@ -1,9 +1,17 @@
 version: '3.0'
 services:
   web:
+    # Container name added for convension and easy finding
+    container_name: ezhil-web
+    #Generate image before 
     image : ezhil-site
+    #restart policy added when running from systemd services
+    restart: unless-stopped
+    # Adjust as per your host needs
     ports:
       - '8080:8080' 
-    volumes: 
+    volumes:
+    # Folder mapping updated for ezhil python code reference 
+    # Static folder site update 
       - ./dynamic/dist:/web
       - ./ezhil:/web/ezhil

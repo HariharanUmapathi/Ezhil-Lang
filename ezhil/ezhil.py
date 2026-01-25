@@ -164,25 +164,8 @@ class EzhilFileExecuter(EzhilRedirectOutput):
         When constructed with a @TIMEOUT value, the process may terminate without and output, otherwise it dumps the output
         to a file named, 
     """
-
-    def get_output(self):
-        return [self.tmpf_name, self.fProcName, self.data]
-
-    def __del__(self):
-        # print(u"Proc deletion method...")
-        if self.tmpf and hasattr(self.tmpf, 'name'):
-            os.unlink(self.tmpf.name)
-            self.tmpf = None
-        if self.fProcName:
-            os.unlink(self.fProcName)
-            self.fProcName = None
-        if hasattr(self.p, 'terminate'):
-            print(".... terminate!!! ....")
-            self.p.terminate()
-        # print(u"exit code = %d"%self.exitcode)
-        pass
-
-    def __init__(self, file_input, debug=False, redirectop=False, TIMEOUT=None, encoding="utf-8", doprofile=False,
+    # Constructor function prepares the ezhil code execution 
+    def __init__(self, file_input, debug=True, redirectop=False, TIMEOUT=None, encoding="utf-8", doprofile=False,
                  safe_mode=False):
         encoding = encoding.lower()
         EzhilRedirectOutput.__init__(self, redirectop, debug)
@@ -212,6 +195,24 @@ class EzhilFileExecuter(EzhilRedirectOutput):
                                      'doprofile': doprofile, 'safe_mode': safe_mode})
         # print("done...")
 
+    def get_output(self):
+        return [self.tmpf_name, self.fProcName, self.data]
+
+    def __del__(self):
+        # print(u"Proc deletion method...")
+        if self.tmpf and hasattr(self.tmpf, 'name'):
+            os.unlink(self.tmpf.name)
+            self.tmpf = None
+        if self.fProcName:
+            os.unlink(self.fProcName)
+            self.fProcName = None
+        if hasattr(self.p, 'terminate'):
+            print(".... terminate!!! ....")
+            self.p.terminate()
+        # print(u"exit code = %d"%self.exitcode)
+        pass
+
+    
     def run(self):
         if self.p:
             try:

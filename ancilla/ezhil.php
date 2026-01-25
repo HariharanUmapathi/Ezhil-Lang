@@ -13,7 +13,7 @@
  * Date Started: 2004/08/30
  *
  * Ezhil language file for GeSHi.
- * Ezhil - A Tamil Programming language, http://ezhillang.org, and
+ * Ezhil - A Tamil Programming language, https://ezhil.kaniyam.ca/, and
  * http://en.wikipedia.org/wiki/Ezhil_%28programming_language%29
  *************************************************************************************
  *
